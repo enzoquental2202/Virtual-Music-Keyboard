@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Music Keyboard Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Music Keyboard</h1>
+        <div class="controls">
+            <span class="octave-display">Octave: <span id="octave-value">4</span></span>
+            <div class="volume-control">
+                <span class="volume-label">VOL</span>
+                <input type="range" id="master-volume" min="0" max="100" value="75">
+                <span class="volume-value" id="volume-display">75%</span>
+            </div>
+            <div class="sustain-control">
+                <button id="sustain-btn" class="sustain-btn">SUSTAIN</button>
+                <span class="sustain-indicator" id="sustain-indicator">OFF</span>
+            </div>
+            <span class="hint">Use Z/X to change octave | Space for sustain</span>
+        </div>
+
+        <!-- Pitch Bend Wheel -->
+        <div class="pitch-bend-container">
+            <div class="pitch-bend-label">PITCH</div>
+            <div class="pitch-bend-wheel-wrapper">
+                <input type="range" id="pitch-bend" class="pitch-bend-wheel" min="-100" max="100" value="0" orient="vertical">
+                <div class="pitch-bend-center-line"></div>
+            </div>
+            <div class="pitch-bend-value" id="pitch-bend-value">0</div>
+        </div>
+
+        <!-- Arpeggiator Section -->
+        <div class="arpeggiator-section">
+            <div class="arpeggiator-header">
+                <span class="arp-label">ARPEGGIATOR</span>
+                <button id="arp-toggle" class="arp-toggle-btn">OFF</button>
+            </div>
+            <div class="arpeggiator-controls">
+                <div class="arp-control-group">
+                    <label class="arp-control-label">Mode</label>
+                    <select id="arp-mode" class="arp-select">
+                        <option value="up">Up</option>
+                        <option value="down">Down</option>
+                        <option value="updown">Up/Down</option>
+                        <option value="random">Random</option>
+                        <option value="asplayed">As Played</option>
+                    </select>
+                </div>
+                <div class="arp-control-group">
+                    <label class="arp-control-label">Rate</label>
+                    <select id="arp-rate" class="arp-select">
+                        <option value="4">1/4</option>
+                        <option value="8" selected>1/8</option>
+                        <option value="16">1/16</option>
+                        <option value="32">1/32</option>
+                    </select>
+                </div>
+                <div class="arp-control-group">
+                    <label class="arp-control-label">Gate</label>
+                    <select id="arp-gate" class="arp-select">
+                        <option value="25">25%</option>
+                        <option value="50">50%</option>
+                        <option value="75" selected>75%</option>
+                        <option value="100">100%</option>
+                    </select>
+                </div>
+                <div class="arp-control-group">
+                    <label class="arp-control-label">Octaves</label>
+                    <select id="arp-octaves" class="arp-select">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <button id="arp-hold" class="arp-hold-btn">HOLD</button>
+            </div>
+        </div>
+
+        <!-- Sequencer Controls -->
+        <div class="sequencer-section">
+            <div class="sequencer-controls">
+                <button id="record-btn" class="seq-btn">Record</button>
+                <button id="play-btn" class="seq-btn" disabled>Play</button>
+                <button id="stop-btn" class="seq-btn" disabled>Stop</button>
+                <button id="clear-btn" class="seq-btn" disabled>Clear</button>
+                <div class="tempo-control">
+                    <label>BPM: <input type="number" id="tempo" value="120" min="40" max="240"></label>
+                </div>
+                <span class="seq-status" id="seq-status">Ready</span>
+            </div>
+
+            <!-- Chord Buttons -->
+            <div class="chord-section">
+                <span class="chord-label">Chords:</span>
+                <div class="chord-buttons">
+                    <button class="chord-btn" data-chord="C">C</button>
+                    <button class="chord-btn" data-chord="Dm">Dm</button>
+                    <button class="chord-btn" data-chord="Em">Em</button>
+                    <button class="chord-btn" data-chord="F">F</button>
+                    <button class="chord-btn" data-chord="G">G</button>
+                    <button class="chord-btn" data-chord="Am">Am</button>
+                    <button class="chord-btn" data-chord="Bdim">Bdim</button>
+                </div>
+            </div>
+        </div>
+        <div class="keyboard" id="keyboard">
+            <!-- Octave 1 -->
+            <div class="key white" data-note="C" data-key="a"><span class="key-label">A</span><span class="note-label">C</span></div>
+            <div class="key black" data-note="C#" data-key="w"><span class="key-label">W</span></div>
+            <div class="key white" data-note="D" data-key="s"><span class="key-label">S</span><span class="note-label">D</span></div>
+            <div class="key black" data-note="D#" data-key="e"><span class="key-label">E</span></div>
+            <div class="key white" data-note="E" data-key="d"><span class="key-label">D</span><span class="note-label">E</span></div>
+            <div class="key white" data-note="F" data-key="f"><span class="key-label">F</span><span class="note-label">F</span></div>
+            <div class="key black" data-note="F#" data-key="t"><span class="key-label">T</span></div>
+            <div class="key white" data-note="G" data-key="g"><span class="key-label">G</span><span class="note-label">G</span></div>
+            <div class="key black" data-note="G#" data-key="y"><span class="key-label">Y</span></div>
+            <div class="key white" data-note="A" data-key="h"><span class="key-label">H</span><span class="note-label">A</span></div>
+            <div class="key black" data-note="A#" data-key="u"><span class="key-label">U</span></div>
+            <div class="key white" data-note="B" data-key="j"><span class="key-label">J</span><span class="note-label">B</span></div>
+            <!-- Octave 2 -->
+            <div class="key white" data-note="C2" data-key="k"><span class="key-label">K</span><span class="note-label">C</span></div>
+            <div class="key black" data-note="C#2" data-key="o"><span class="key-label">O</span></div>
+            <div class="key white" data-note="D2" data-key="l"><span class="key-label">L</span><span class="note-label">D</span></div>
+            <div class="key black" data-note="D#2" data-key="p"><span class="key-label">P</span></div>
+            <div class="key white" data-note="E2" data-key=";"><span class="key-label">;</span><span class="note-label">E</span></div>
+            <div class="key white" data-note="F2" data-key="'"><span class="key-label">'</span><span class="note-label">F</span></div>
+            <div class="key black" data-note="F#2" data-key="["><span class="key-label">[</span></div>
+            <div class="key white" data-note="G2" data-key="\"><span class="key-label">\</span><span class="note-label">G</span></div>
+            <div class="key black" data-note="G#2" data-key="]"><span class="key-label">]</span></div>
+            <div class="key white" data-note="A2" data-key="1"><span class="key-label">1</span><span class="note-label">A</span></div>
+            <div class="key black" data-note="A#2" data-key="2"><span class="key-label">2</span></div>
+            <div class="key white" data-note="B2" data-key="3"><span class="key-label">3</span><span class="note-label">B</span></div>
+            <!-- Octave 3 -->
+            <div class="key white" data-note="C3" data-key="4"><span class="key-label">4</span><span class="note-label">C</span></div>
+            <div class="key black" data-note="C#3" data-key="5"><span class="key-label">5</span></div>
+            <div class="key white" data-note="D3" data-key="6"><span class="key-label">6</span><span class="note-label">D</span></div>
+            <div class="key black" data-note="D#3" data-key="7"><span class="key-label">7</span></div>
+            <div class="key white" data-note="E3" data-key="8"><span class="key-label">8</span><span class="note-label">E</span></div>
+            <div class="key white" data-note="F3" data-key="9"><span class="key-label">9</span><span class="note-label">F</span></div>
+            <div class="key black" data-note="F#3" data-key="0"><span class="key-label">0</span></div>
+            <div class="key white" data-note="G3" data-key="-"><span class="key-label">-</span><span class="note-label">G</span></div>
+            <div class="key black" data-note="G#3" data-key="="><span class="key-label">=</span></div>
+            <div class="key white" data-note="A3" data-key="q"><span class="key-label">Q</span><span class="note-label">A</span></div>
+            <div class="key black" data-note="A#3" data-key="r"><span class="key-label">R</span></div>
+            <div class="key white" data-note="B3" data-key="n"><span class="key-label">N</span><span class="note-label">B</span></div>
+            <!-- Octave 4 (final C) -->
+            <div class="key white" data-note="C4" data-key="m"><span class="key-label">M</span><span class="note-label">C</span></div>
+        </div>
+        <div class="instructions">
+            <p><strong>Octave 1:</strong> A S D F G H J (white) | W E T Y U (black)</p>
+            <p><strong>Octave 2:</strong> K L ; ' \ 1 3 (white) | O P [ ] 2 (black)</p>
+            <p><strong>Octave 3:</strong> 4 6 8 9 - Q N (white) | 5 7 0 = R (black) | M (final C)</p>
+            <p><strong>Controls:</strong> Z/X (octave down/up) | Space (sustain)</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

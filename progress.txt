@@ -261,3 +261,119 @@ All 15 black keys (5 per octave × 3 octaves) must have keyboard mappings assign
 - All 15 black keys now have keyboard shortcuts (previously only 8 had shortcuts)
 - Logical key layout: letter row for octave 1-2, number row for octave 2-3
 Project status: COMPLETE
+
+Implement an AI-powered IMPROVISATION feature that generates melodic improvisations based on recorded sequences. When the user records a chord progression or melody, clicking "Improvise" will analyze the harmonic content and generate a musically coherent improvisation on top of it.
+
+AI IMPROVISATION ENGINE:
+
+1. HARMONIC ANALYSIS (analyze the recorded sequence):
+   - Detect the musical key/scale from recorded notes (C major, A minor, etc.)
+   - Identify chord progressions by grouping simultaneous notes
+   - Calculate note frequency distribution to determine tonal center
+   - Detect tempo and rhythmic patterns from note timing
+
+2. IMPROVISATION ALGORITHMS:
+   - Scale-based generation: pick notes from detected scale with weighted probabilities
+   - Chord-tone emphasis: prioritize root, 3rd, 5th on strong beats
+   - Passing tones: use chromatic/diatonic approaches between chord tones
+   - Neighbor tones: ornament around target notes
+   - Arpeggiation: break chords into melodic patterns
+   - Call-and-response: echo/vary fragments of original melody
+   - Rhythmic variation: syncopation, anticipation, delay
+
+3. IMPROVISATION STYLES (user-selectable):
+   - Jazz: chromatic approaches, bebop scales, swing rhythm, blue notes
+   - Classical: diatonic, arpeggios, ornaments (trills, mordents)
+   - Blues: pentatonic scale, bent notes, call-response patterns
+   - Pop/Rock: simple melodic hooks, repetition, catchy phrases
+   - Ambient: long notes, slow evolution, consonant intervals
+   - Random/Experimental: atonal, unpredictable, full chromatic
+
+4. CONTROLS:
+   - "IMPROVISE" button: generate and play improvisation over the loop
+   - Complexity slider: simple (few notes, scale-based) to complex (chromatic, fast)
+   - Density slider: sparse (few notes) to dense (many notes)
+   - Style selector dropdown: Jazz, Classical, Blues, Pop, Ambient, Random
+   - "Regenerate" button: create a new variation
+   - "Save Improv" button: save generated melody to a new track/sequence
+   - "Merge" button: combine original + improvisation into one sequence
+
+5. PLAYBACK:
+   - Play improvisation in sync with original recorded loop (same BPM)
+   - Option to play improv solo or layered on top of recording
+   - Real-time visualization: highlight notes being played on keyboard
+   - Show generated notes on a simple piano roll display
+
+6. MUSIC THEORY ENGINE (JavaScript implementation):
+   - Scale definitions: major, minor, dorian, mixolydian, pentatonic, blues, chromatic
+   - Chord detection: analyze note clusters to identify chord types
+   - Key detection: count note occurrences, match against scale patterns
+   - Probability matrices: likelihood of note transitions based on style
+   - Rhythm generator: create patterns based on time signature and style
+
+INTERFACE:
+- Add "IMPROVISE" section below sequencer controls
+- Glassmorphism panel matching DAW aesthetic
+- LED-style indicator showing when improvisation is playing
+- Style dropdown with neon accent colors per style
+- Sliders for Complexity and Density with visual feedback
+
+This feature transforms the keyboard from a simple instrument into a creative AI music partner!
+
+2026-01-13: Implemented AI Improvisation Engine:
+- Added AI Improvisation section with glassmorphism panel design
+- Implemented music theory engine with scale definitions (major, minor, dorian, mixolydian, pentatonic, blues, chromatic)
+- Key detection algorithm analyzes recorded sequences to find tonal center
+- Chord detection identifies chord types from simultaneous note clusters
+- Six improvisation styles: Jazz, Classical, Blues, Pop/Rock, Ambient, Random
+- Complexity slider (1-10) controls chromatic vs diatonic note selection
+- Density slider (1-10) controls notes per second in improvisation
+- Style-specific note weighting (blue notes for jazz/blues, pentatonic for pop, etc.)
+- Weighted random note selection favoring stepwise motion
+- Chord-tone emphasis on strong beats
+- IMPROVISE button generates and plays AI melody over recorded loop
+- Regenerate button creates new variation with same analysis
+- Stop button halts improvisation playback
+- Real-time harmonic analysis display showing detected key and chords
+- Visual keyboard highlighting during improvisation playback
+- Looped playback synced with original recording duration
+- Responsive CSS for mobile devices
+- Updated PRD with AI Improvisation documentation
+Project status: COMPLETE
+
+Make the IMPROVISE feature work without requiring a recorded sequence first. Currently, users must record something before they can use the AI improvisation. This creates friction and limits creativity.
+
+INSTANT IMPROVISATION:
+- Allow the Improvise button to work immediately when the keyboard is opened
+- If no sequence is recorded, use intelligent defaults:
+  - Default key: C major (most common, beginner-friendly)
+  - Default chord progression: I-V-vi-IV (C-G-Am-F) - the most popular progression in music
+  - Default tempo: use current BPM setting
+  - Default duration: 4-8 bars loop
+- When a sequence IS recorded, continue using the analysis-based approach
+- Add a "Key" selector dropdown so users can choose the improvisation key manually (C, C#, D, D#, E, F, F#, G, G#, A, A#, B)
+- Add a "Scale" selector (Major, Minor, Pentatonic, Blues, Dorian, etc.)
+- These manual selections override the auto-detection when no recording exists
+
+BEHAVIOR:
+- No recording + no manual key selection = use C major with I-V-vi-IV progression
+- No recording + manual key/scale selected = improvise in that key/scale freely
+- Recording exists = analyze and improvise based on recording (current behavior)
+- Users can immediately click "Improvise" and hear AI-generated music
+
+This makes the keyboard a true "jam companion" that plays along even when the user hasn't recorded anything yet. Perfect for beginners learning scales or experienced players wanting instant backing tracks.
+
+2026-01-14: Implemented Instant Improvisation feature:
+- Added Key selector dropdown (C, C#, D, D#, E, F, F#, G, G#, A, A#, B) to manually choose improvisation key
+- Added Scale selector dropdown (Major, Minor, Dorian, Mixolydian, Pentatonic Major/Minor, Blues)
+- IMPROVISE button now works immediately without requiring a recorded sequence
+- Default analysis uses I-V-vi-IV chord progression for major scales (C-G-Am-F in C major)
+- Default analysis uses i-VII-VI-VII chord progression for minor scales
+- Duration defaults to 4 bars at current BPM when no recording exists
+- Manual key/scale selections override auto-detection when no recording exists
+- When a sequence IS recorded, the original analysis-based approach is still used
+- Analysis display updates dynamically based on key/scale selection
+- Regenerate button works with instant improvisation mode
+- Clear button resets analysis display to show manual selection defaults
+- Updated PRD with Instant Improvisation documentation
+Project status: COMPLETE

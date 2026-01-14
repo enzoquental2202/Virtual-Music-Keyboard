@@ -108,6 +108,75 @@
                 </div>
             </div>
         </div>
+
+        <!-- AI Improvisation Section -->
+        <div class="improvisation-section">
+            <div class="improv-header">
+                <span class="improv-label">AI IMPROVISATION</span>
+                <span class="improv-status" id="improv-status">Ready</span>
+            </div>
+            <div class="improv-controls">
+                <div class="improv-control-group">
+                    <label class="improv-control-label">Key</label>
+                    <select id="improv-key" class="improv-select">
+                        <option value="C" selected>C</option>
+                        <option value="C#">C#</option>
+                        <option value="D">D</option>
+                        <option value="D#">D#</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="F#">F#</option>
+                        <option value="G">G</option>
+                        <option value="G#">G#</option>
+                        <option value="A">A</option>
+                        <option value="A#">A#</option>
+                        <option value="B">B</option>
+                    </select>
+                </div>
+                <div class="improv-control-group">
+                    <label class="improv-control-label">Scale</label>
+                    <select id="improv-scale" class="improv-select">
+                        <option value="major" selected>Major</option>
+                        <option value="minor">Minor</option>
+                        <option value="dorian">Dorian</option>
+                        <option value="mixolydian">Mixolydian</option>
+                        <option value="pentatonicMajor">Pentatonic Maj</option>
+                        <option value="pentatonicMinor">Pentatonic Min</option>
+                        <option value="blues">Blues</option>
+                    </select>
+                </div>
+                <div class="improv-control-group">
+                    <label class="improv-control-label">Style</label>
+                    <select id="improv-style" class="improv-select">
+                        <option value="jazz">Jazz</option>
+                        <option value="classical">Classical</option>
+                        <option value="blues">Blues</option>
+                        <option value="pop" selected>Pop/Rock</option>
+                        <option value="ambient">Ambient</option>
+                        <option value="random">Random</option>
+                    </select>
+                </div>
+                <div class="improv-control-group">
+                    <label class="improv-control-label">Complexity</label>
+                    <input type="range" id="improv-complexity" class="improv-slider" min="1" max="10" value="5">
+                    <span class="improv-slider-value" id="complexity-display">5</span>
+                </div>
+                <div class="improv-control-group">
+                    <label class="improv-control-label">Density</label>
+                    <input type="range" id="improv-density" class="improv-slider" min="1" max="10" value="5">
+                    <span class="improv-slider-value" id="density-display">5</span>
+                </div>
+            </div>
+            <div class="improv-buttons">
+                <button id="improv-btn" class="improv-action-btn improv-main-btn">IMPROVISE</button>
+                <button id="improv-regen-btn" class="improv-action-btn" disabled>Regenerate</button>
+                <button id="improv-stop-btn" class="improv-action-btn" disabled>Stop</button>
+            </div>
+            <div class="improv-analysis" id="improv-analysis">
+                <span class="analysis-label">Analysis:</span>
+                <span class="analysis-text" id="analysis-text">Using C Major with I-V-vi-IV progression</span>
+            </div>
+        </div>
         <div class="keyboard" id="keyboard">
             <!-- Octave 1 -->
             <div class="key white" data-note="C" data-key="a"><span class="key-label">A</span><span class="note-label">C</span></div>

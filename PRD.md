@@ -105,6 +105,48 @@ A web-based virtual music keyboard that allows users to play musical notes using
     - DAW-style glassmorphism panel design
     - Mobile-responsive controls
 
+12. **AI Improvisation Engine**
+    - Analyzes recorded sequences to detect musical key and scale
+    - Detects chord progressions from simultaneous note clusters
+    - Generates melodic improvisations over recorded loops
+    - **Instant Improvisation (no recording required):**
+      - Works immediately without needing to record a sequence first
+      - Manual Key selector (C, C#, D, D#, E, F, F#, G, G#, A, A#, B)
+      - Manual Scale selector (Major, Minor, Dorian, Mixolydian, Pentatonic Major/Minor, Blues)
+      - Default chord progression: I-V-vi-IV for major scales, i-VII-VI-VII for minor scales
+      - Duration: 4 bars at current BPM tempo setting
+      - Manual selections override auto-detection when no recording exists
+    - **Improvisation Styles:**
+      - Jazz: Dorian mode, chromatic approaches, blue notes
+      - Classical: Diatonic scales, arpeggios, ornamental patterns
+      - Blues: Blues scale emphasis, bent note feel
+      - Pop/Rock: Pentatonic melodies, simple catchy phrases
+      - Ambient: Long sustained notes, consonant intervals
+      - Random: Full chromatic exploration
+    - **Controls:**
+      - Key selector dropdown for choosing improvisation key
+      - Scale selector dropdown for choosing scale type
+      - Style selector dropdown for different musical genres
+      - Complexity slider (1-10): Controls chromatic/diatonic balance
+      - Density slider (1-10): Controls notes per second
+      - IMPROVISE button: Starts AI-generated melody playback (always enabled)
+      - Regenerate button: Creates new variation
+      - Stop button: Halts improvisation playback
+    - **Music Theory Engine:**
+      - Scale detection: Major, Minor, Pentatonic, Blues
+      - Chord identification: Major, Minor, Dim, Aug, 7th chords
+      - Weighted note selection based on chord tones
+      - Stepwise motion preference for melodic coherence
+      - Style-specific note weighting algorithms
+    - **Behavior Modes:**
+      - No recording + no manual selection = C Major with I-V-vi-IV progression
+      - No recording + manual key/scale = improvise freely in selected key/scale
+      - Recording exists = analyze and improvise based on recording
+    - Real-time harmonic analysis display showing detected key/chords
+    - Looped playback synced with original recording duration (or 4 bars when no recording)
+    - Visual keyboard highlighting during improvisation
+    - DAW-style glassmorphism panel with gradient accent
+
 ## Technical Implementation
 
 ### Technology Stack
@@ -164,6 +206,13 @@ A web-based virtual music keyboard that allows users to play musical notes using
    - Click "Play" to loop the recorded sequence
    - Click "Stop" to stop playback
    - Click "Clear" to reset and record a new sequence
+6. Use AI Improvisation:
+   - Record a chord progression or melody first
+   - Select an improvisation style (Jazz, Blues, Pop, etc.)
+   - Adjust Complexity and Density sliders to taste
+   - Click "IMPROVISE" to generate and play AI melody
+   - Click "Regenerate" for a new variation
+   - Click "Stop" to halt improvisation
 
 ## Browser Support
 

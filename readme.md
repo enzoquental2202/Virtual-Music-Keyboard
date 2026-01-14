@@ -1,83 +1,96 @@
 # 🎹 Virtual Music Keyboard
 
-Um teclado musical virtual profissional direto no seu navegador — com visual estilo DAW, arpeggiator, sequencer e muito mais.
+A professional-grade virtual synthesizer running entirely in your browser. No plugins, no installs — just open and play.
 
 ![Virtual Music Keyboard](keyboard.png)
 
 ## ✨ Features
 
-- **37 teclas** (3+ oitavas) com feedback visual
-- **Arpeggiator** com modos Up, Down, Up/Down, Random e As Played
-- **Pitch Bend Wheel** com ±2 semitons e retorno automático
-- **Sustain Pedal** (Space ou botão na tela)
-- **Loop Sequencer** para gravar e reproduzir sequências
-- **Acordes de 1 clique** — C, Dm, Em, F, G, Am, Bdim
-- **Visual DAW-style** com tema dark e neon (cyan/magenta/orange)
-- **Controle de volume** master em tempo real
-- **100% tocável pelo teclado** — todas as teclas mapeadas
+### 🎵 Instrument
+- **37 keys** spanning 3+ octaves with realistic 3D piano visuals
+- **Full keyboard mapping** — every key playable via computer keyboard
+- **Web Audio API** synthesis with triangle waveform and ADSR envelope
+- **Octave control** (Z/X keys) — range from octave 1 to 7
 
-## 🎮 Como Usar
+### 🎛️ Controls
+- **Pitch Bend Wheel** — ±2 semitones with spring-loaded auto-return
+- **Sustain Pedal** — Space key or on-screen button
+- **Master Volume** — real-time gain control
+- **One-click Chords** — C, Dm, Em, F, G, Am, Bdim
 
-1. Abra o `index.html` no navegador
-2. Toque usando o teclado do computador ou clicando nas teclas
-3. Use **Z/X** para mudar oitava
-4. **Space** ativa o sustain
-5. Grave loops com os botões Record/Play/Stop
-6. Experimente o arpeggiator e o pitch bend!
+### 🔄 Arpeggiator
+- **5 Modes**: Up, Down, Up/Down, Random, As Played
+- **Rate sync** with BPM: 1/4, 1/8, 1/16, 1/32 divisions
+- **Gate control**: 25%, 50%, 75%, 100%
+- **Octave range**: 1-4 octaves
+- **Hold function** to keep patterns playing
 
-### ⌨️ Mapeamento do Teclado
+### 🔴 Loop Sequencer
+- Record, Play, Stop, Clear controls
+- BPM control (40-240)
+- Automatic looping with precise timing
+- Records both notes and chords
 
-| Oitava | Teclas Brancas | Teclas Pretas |
-|--------|----------------|---------------|
+## 🎮 Quick Start
+
+1. Open `index.html` in any modern browser
+2. Click anywhere to enable audio
+3. Play using your keyboard or mouse
+
+### ⌨️ Keyboard Layout
+
+| Octave | White Keys | Black Keys |
+|--------|------------|------------|
 | 1 | A S D F G H J | W E T Y U |
 | 2 | K L ; ' \ 1 3 | O P [ ] 2 |
 | 3 | 4 6 8 9 - Q N | 5 7 0 = R |
-| 4 | M (Dó final) | — |
+| 4 | M (final C) | — |
 
-## 🤖 Feito com Ralph
-
-Este projeto foi construído usando o **Ralph Loop** — um método de desenvolvimento autônomo onde o Claude (AI) trabalha em ciclos:
-
-```
-Fail → Fix → Fail → Fix → Commit → Repeat
-```
-
-O Ralph lê um PRD (Product Requirements Document), executa tarefas, commita o progresso, e repete até completar. Zero ego, zero standups, só código.
-
-**Scripts incluídos:**
-- `gen-prd.sh` — Gera o PRD do projeto
-- `ralph-once.sh` — Executa uma tarefa por vez
-- `ralph-afk.sh` — Modo AFK, roda N tarefas enquanto você descansa
-
-![Ralph Wiggum, Senior Software Engineer](ralph.png)
+**Controls**: Z/X (octave down/up) • Space (sustain)
 
 ## 🛠️ Tech Stack
 
-- **HTML5** + **CSS3** + **JavaScript**
-- **Web Audio API** para síntese de som
-- **Zero dependências** — só abre e usa
+- **HTML5** + **CSS3** + **Vanilla JavaScript**
+- **Web Audio API** for low-latency synthesis
+- **Zero dependencies** — works offline
 
-## 📁 Estrutura
+## 📁 Project Structure
 
 ```
-├── index.html      # Estrutura principal
-├── styles.css      # Visual DAW-style
-├── script.js       # Lógica de áudio e eventos
-├── PRD.md          # Documento de requisitos
-└── progress.txt    # Diário do Ralph
+├── index.html      # Main application
+├── styles.css      # DAW-style dark theme
+├── script.js       # Audio engine & controls
+└── PRD.md          # Product requirements
 ```
 
-## 🌐 Compatibilidade
+## 🌐 Browser Support
 
-- Chrome ✅ (recomendado)
-- Firefox ✅
-- Safari ✅
-- Edge ✅
+| Browser | Status |
+|---------|--------|
+| Chrome | ✅ Recommended |
+| Firefox | ✅ |
+| Safari | ✅ |
+| Edge | ✅ |
 
 ---
 
-**Happy looping!** 🎉
+## 🤖 Built with Ralph
 
-## License
+This project was built using the **Ralph Loop** — an autonomous AI development workflow where Claude (AI) iterates through a PRD (Product Requirements Document):
+
+```
+Read PRD → Implement → Commit → Update Progress → Repeat
+```
+
+The included scripts demonstrate this approach:
+- `gen-prd.sh` — Generate initial PRD
+- `ralph-once.sh` — Execute one task
+- `ralph-afk.sh N` — Run N iterations autonomously
+
+![Ralph Wiggum, Senior Software Engineer](ralph.png)
+
+---
+
+## 📄 License
 
 MIT License © 2026
